@@ -115,7 +115,7 @@ The project I create is simple:
 - Loop with What that you send something to the serial
 
 The first thing to put in your code is the library and the declaration of your LoRa chip and your appEui, appKey:
-```arduino
+```c++
 #include <MKRWAN.h>
 
 LoRaModem modem;
@@ -132,7 +132,7 @@ After, open communication with LoRa chip.
 
 Then, connect to LoRaWAN. I have create loop for keep retrying the connection until it works.
 
-```arduino
+```c++
 void setup() {
  Serial.begin(115200);
  while (!Serial);
@@ -163,7 +163,7 @@ Then send a payload to LoRaWAN.
 
 And print to serial the state of the message.
 
-```arduino
+```c++
 void loop() {
  Serial.println();
  Serial.println("Send something in the serial console to send the payload");
@@ -237,7 +237,7 @@ Before anything:
 - Include MKRWAN
 - Declare LoRaModem
 - Declare appui and appKey
-```arduino
+```c++
 #include <MKRWAN_v2.h>
 
 LoRaModem modem;
@@ -250,7 +250,7 @@ In setup:
 - Open communication with LoRaModem
 - Connect to LoRaWAN with JoinOTAA and keep retrying before going further
 
-```arduino
+```c++
 if (!modem.begin(EU868)) {
 //Failed to start module
  while (1);
@@ -274,7 +274,7 @@ In your loop:
 - Print your payload
 - Close the communication
 
-```arduino
+```c++
 modem.setPort(1);
 modem.beginPacket();
 modem.print(yourPayload);
